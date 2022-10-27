@@ -112,6 +112,7 @@ variable "firewall_rules" {
 
 variable "server_config" {
   type        = map(string)
+  default     = {}
   description = "Sets a PostgreSQL Configuration value on a Azure PostgreSQL Flexible Server."
 }
 
