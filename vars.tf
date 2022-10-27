@@ -64,11 +64,13 @@ variable "storage_mb" {
 
 variable "zones" {
   description = "Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located."
+  default     = null
 }
 
 variable "tags" {
   type        = string
   description = "A mapping of tags which should be assigned to the PostgreSQL Flexible Server."
+  default     = null
 }
 
 variable "high_availability" {
