@@ -9,8 +9,8 @@ variable "databases" {
 
 variable "server_version" {
   description = "Specifies the version of PostgreSQL to use."
-  type        = string
-  default     = "14"
+  type        = number
+  default     = 14
 }
 
 variable "resource_group_name" {
