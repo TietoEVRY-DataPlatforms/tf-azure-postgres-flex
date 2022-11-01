@@ -1,8 +1,8 @@
 variable "databases" {
-  type = object({
-    collation = optional(string)
-    charset   = optional(string)
-  })
+  type = map(object({
+    collation = optional(string, "en_US.utf8")
+    charset   = optional(string, "utf8")
+  }))
   default     = {}
   description = "Dictionary of databases"
 }
