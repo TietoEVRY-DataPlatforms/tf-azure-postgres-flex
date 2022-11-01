@@ -22,10 +22,22 @@ resource "azurerm_postgresql_flexible_server" "postgresql_server" {
   private_dns_zone_id = var.private_dns_zone_id
 
 
-  tags               = var.tags
-  high_availability  = var.high_availability
-  maintenance_window = var.maintenance_window
-
+  tags = var.tags
+  dynamic "high_availability" {
+    for_each = var.high_availability != null ? [1] : []
+    content {
+      mode                      = var.high_availability.mode
+      standby_availability_zone = var.high_availability.standby_availability_zone
+    }
+  }
+  dynamic "maintenance_window" {
+    for_each = var.maintenance_window != null ? [1] : []
+    content {
+      day_of_week  = var.maintenance_window.day_of_week
+      start_hour   = var.maintenance_window.start_hour
+      start_minute = var.maintenance_window.start_minute
+    }
+  }
   # depends_on = [azurerm_postgresql_flexible_server.example]
 }
 
