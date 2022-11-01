@@ -68,7 +68,7 @@ variable "zones" {
 }
 
 variable "tags" {
-  type        = string
+  type        = map(string)
   description = "A mapping of tags which should be assigned to the PostgreSQL Flexible Server."
   default     = null
 }
