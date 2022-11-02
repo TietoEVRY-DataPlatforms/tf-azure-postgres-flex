@@ -1,6 +1,5 @@
 locals {
-  default_charset   = "UTF8"
-  default_collation = "English_United States.1252"
+
 }
 
 resource "azurerm_postgresql_flexible_server" "postgresql_server" {
@@ -45,8 +44,8 @@ resource "azurerm_postgresql_flexible_server_database" "database" {
   for_each  = var.databases
   name      = each.key
   server_id = azurerm_postgresql_flexible_server.postgresql_server.id
-  collation = lookup(each.value, "collation", local.default_collation)
-  charset   = lookup(each.value, "charset", local.default_charset)
+  collation = each.value.collation
+  charset   = each.value.charset
 }
 
 resource "azurerm_postgresql_flexible_server_configuration" "server_config" {
