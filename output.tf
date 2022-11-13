@@ -13,4 +13,7 @@ output "server_id" {
   value       = azurerm_postgresql_flexible_server.postgresql_server.id
 }
 
-
+output "databases" {
+  description = "The list of all database resource ids"
+  value       = azurerm_postgresql_flexible_server_database.database
+}
