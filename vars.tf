@@ -79,7 +79,7 @@ variable "high_availability" {
     standby_availability_zone = optional(string)
   })
   default     = null
-  description = "mode - (Required) The high availability mode for the PostgreSQL Flexible Server. The only possible value is ZoneRedundant. standby_availability_zone - (Optional) Specifies the Availability Zone in which the standby Flexible Server should be located."
+  description = "mode - (Required) The high availability mode for the PostgreSQL Flexible Server. The only possible value is SameZone. standby_availability_zone - (Optional) Specifies the Availability Zone in which the standby Flexible Server should be located."
 }
 
 variable "maintenance_window" {
