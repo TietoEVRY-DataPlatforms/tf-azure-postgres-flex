@@ -67,6 +67,12 @@ variable "zones" {
   default     = 1
 }
 
+variable "public_network_access_enabled" {
+  type        = bool
+  default     = true
+  description = "Specifies whether this PostgreSQL Flexible Server is publicly accessible"
+}
+
 variable "tags" {
   type        = map(string)
   description = "A mapping of tags which should be assigned to the PostgreSQL Flexible Server."
